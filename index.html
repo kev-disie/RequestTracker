@@ -16,7 +16,7 @@
 
 <div class="main-layout">
     <aside>
-        <h2>submit a request</h2>
+        <h2>Submit a request</h2>
 
         <form id="request-form" novalidate>
             <label for="name">Full name</label>
@@ -37,12 +37,56 @@
 
             <label for="request-type">Request Type</label>
             <select id="request-type">
-                
+                <option value="">Select</option>
+                <option value="Bug">Bug</option>
+                <option value="Feature Request">Feature Request</option>
+                <option value="General FeedBack">General FeedBack</option>
+                <option value=Partnership"">Partnership</option>
+                <option value="Other">Other</option>
             </select>
-            
+
+            <p>Priority</p>
+            <label>
+                <input type="radio" name="priority" value="Low" checked>Low
+            </label>
+            <label>
+                <input type="radio" name="priority" value="Medium">Medium
+            </label>
+            <label>
+                <input type="radio" name="priority" value="High">High
+            </label>
+
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Describe your request"></textarea>
+
+            <button type="submit">Submit request</button>
+
+            <p id="success-msg" style="display: none;">Submitted!</p>
 
         </form>
     </aside>
+    <!--Requests submitted will appear here-->
+    <main>
+        <h2>Requests</h2>
+        <div class="filter-bar">
+            <input type="text" id="search" placeholder="Search...">
+
+            <select id="filter-status">
+                <option value="">Statuses</option>
+                <option value="New">New</option>
+                <option value="In Review">In Review</option>
+                <option value="Reslolved" >Resolved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <p id="lists-stats">No requests yet!</p>
+        </div>
+        <div id="requests-list">
+            <p>No requests yet. Submit one using the form</p>
+        </div>
+    </main>
 </div>
+
+<script src="app.js"></script>
 </body>
 </html>
