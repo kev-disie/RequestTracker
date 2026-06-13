@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Request Tracker</title>
+
+</head>
+<body>
+<header>
+    <span>Request Tracker</span>
+    <span id="header-count">0 requests</span>
+</header>
+
+<div class="main-layout">
+    <aside>
+        <h2>submit a request</h2>
+
+        <form id="request-form" novalidate>
+            <label for="name">Full name</label>
+            <input type="text" id="name" placeholder="John Doe">
+
+            <label for="Email">Email Address</label>
+            <input type="email" id="Email" placeholder="John@example.com">
+
+            <label for="Product">Product / Company</label>
+            <select id="Product">
+                <option value="">Select one...</option>
+                <option value="Acme Corp">Acme Corp</option>
+                <option value="Globex">Globex</option>
+                <option value="Initech">Initech</option>
+                <option value="Umbrella Ltd">Umbrella Ltd</option>
+                <option value="Soylent Co">Soylent Co</option>
+            </select>
+
+            <label for="request-type">Request Type</label>
+            <select id="request-type">
+                
+            </select>
+            
+
+        </form>
+    </aside>
+</div>
+</body>
+</html>
