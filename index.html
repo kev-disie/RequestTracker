@@ -6,84 +6,138 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Request Tracker</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-<header>
-    <span>Request Tracker</span>
-    <span id="header-count">0 requests</span>
+<header class="site-header">
+    <a class="logo" href="#">
+        <div class="logo-icon">RT</div>
+        Request Tracker
+    </a>
+
+    <span class="header-count"  id="header-count">0 requests</span>
 </header>
 
 <div class="main-layout">
     <aside>
-        <h2>Submit a request</h2>
+        <div class="form-card">
+            <div class="form-card-header">
+                <h2>Submit a request</h2>
+            </div>
+            <div class="form-card-body">
+                <form id="request-form" novalidate>
 
-        <form id="request-form" novalidate>
-            <label for="name">Full name</label>
-            <input type="text" id="name" placeholder="John Doe">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe"/>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" placeholder="youremail@example.com">
+                        </div>
+                    </div>
 
-            <label for="Email">Email Address</label>
-            <input type="email" id="Email" placeholder="John@example.com">
+                    <div class="form-group">
+                        <label for="product">Product / Cpmpany</label>
+                        <select id="Product">
+                            <option value="">Select one...</option>
+                            <option value="Acme Corp">Acme Corp</option>
+                            <option value="Globex">Globex</option>
+                            <option value="Umbrella Ltd">Umbrella Ltd</option>
+                            <option value="Soylent Co">Soylent Co</option>
+                        </select>
+                    </div>
 
-            <label for="Product">Product / Company</label>
-            <select id="Product">
-                <option value="">Select one...</option>
-                <option value="Acme Corp">Acme Corp</option>
-                <option value="Globex">Globex</option>
-                <option value="Initech">Initech</option>
-                <option value="Umbrella Ltd">Umbrella Ltd</option>
-                <option value="Soylent Co">Soylent Co</option>
-            </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="request-type">Request Type</label>
+                            <select id="request-type">
+                                <option value="">Select..</option>
+                                <option value="Bug">Bug</option>
+                                <option value="Feature Request">Feature Request</option>
+                                <option value="General Feedback">General Feedback</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="other">other</option>
+                            </select>
+                        </div>
 
-            <label for="request-type">Request Type</label>
-            <select id="request-type">
-                <option value="">Select</option>
-                <option value="Bug">Bug</option>
-                <option value="Feature Request">Feature Request</option>
-                <option value="General FeedBack">General FeedBack</option>
-                <option value=Partnership"">Partnership</option>
-                <option value="Other">Other</option>
-            </select>
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <div class="priority-group">
+                                <div class="priority-option">
+                                    <input type="radio" name="priority" id="p-low" value="Low" checked>
+                                    <label for="p-low" class="label-low">Low</label>
+                                </div>
 
-            <p>Priority</p>
-            <label>
-                <input type="radio" name="priority" value="Low" checked>Low
-            </label>
-            <label>
-                <input type="radio" name="priority" value="Medium">Medium
-            </label>
-            <label>
-                <input type="radio" name="priority" value="High">High
-            </label>
+                                <div class="priority-option">
+                                    <input type="radio" name="priority" id="p-med" value="Medium">
+                                    <label for="p-med" class="label-med">Medium</label>
+                                </div>
 
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Describe your request"></textarea>
+                                <div class="priority-option">
+                                    <input type="radio" name="priority" id="p-high" value="High">
+                                    <label for="p-high" class="label-high" >High</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <button type="submit">Submit request</button>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea  id="message" placeholder=""Describe you message in detail...></textarea>
+                    </div>
 
-            <p id="success-msg" style="display: none;">Submitted!</p>
-
-        </form>
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                    <div class="success-msg" id="success-msg">✓ Request submitted successfully!</div>
+                </form>
+            </div>
+        </div>
     </aside>
-    <!--Requests submitted will appear here-->
+    <!-- RIGHT: Request list -->
     <main>
-        <h2>Requests</h2>
-        <div class="filter-bar">
-            <input type="text" id="search" placeholder="Search...">
+        <div class="requests-panel">
+            <!-- Filters -->
+            <div class="filters-bar">
+                <input type="text" id="search" class="search-input" placeholder="Search name, email , message...">
+                <select id="filter-product">
+                    <option value="">All Products</option>
+                    <option value="Acme Corp">Acme Corp</option>
+                    <option value="Globex">Globex</option>
+                    <option value="Initech">Initech</option>
+                    <option value="Umbrella Ltd">Umbrella Ltd</option>
+                    <option value="Soylent">Soylent</option>
+                </select>
 
-            <select id="filter-status">
-                <option value="">Statuses</option>
-                <option value="New">New</option>
-                <option value="In Review">In Review</option>
-                <option value="Reslolved" >Resolved</option>
-                <option value="Rejected">Rejected</option>
-            </select>
+                <select  id="filter-type">
+                    <option value="">All priorities</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
 
-            <p id="lists-stats">No requests yet!</p>
+                <select id="filter-status">
+                    <option value="">All statuses</option>
+                    <option value="New">New</option>
+                    <option value="In Review">In Review</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+                <button class="clear-btn" id="clear-filters">Clear</button>
+
+            </div>
+
+            <p class="list-stats" id="list-stats"></p>
+
+            <!--card are injected here dynamiclally-->
+            <div class="requests-list"  id="requests-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <p>No requests yet.Submit one using the form.</p>
+                </div>
         </div>
-        <div id="requests-list">
-            <p>No requests yet. Submit one using the form</p>
+
         </div>
+
     </main>
 </div>
 

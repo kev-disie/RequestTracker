@@ -1,0 +1,264 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body{
+ font-family: Arial, sans-serif;
+ color: black ;
+ font-size: 15px;
+ line-height: 1.6;
+ background-color: azure;
+}
+
+.site-header {
+ background-color: #ffff;
+ border-bottom: 1px solid #e2e0d8;
+ padding: 0 24px;
+ height: 56px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: sticky ;
+ top: 0;
+ z-index: 100;
+}
+
+.site-header .logo{
+ display: flex;
+ align-items: center;
+ font-size: 17px;
+ font-weight: 700;
+ color: black;
+ text-decoration: none;
+}
+
+.site-header .logo-icon{
+ width: 30px;
+ height: 30px;
+ background-color:  #2d5fa3;
+ border-radius: 6px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #ffff;
+ font-size: 14px;
+ font-weight: 700;
+}
+
+.site-header .header-count{
+ font-size: 13px;
+ color:  saddlebrown;
+}
+
+.main-layout{
+ max-width:110px ;
+ margin: 0 auto;
+ padding: 32px 24px;
+ display: grid;
+ grid-template-columns:360px 1fr;
+ gap: 28px;
+ align-items: start;
+}
+
+.form-card{
+ background-color: #ffffff;
+ border: 1px #e2e0d8;
+ border-radius: 14px;
+ overflow: hidden;
+}
+
+.form-card .form-card-header{
+ padding: 18px 22px 14px;
+ border-bottom: #e2e0d8;
+}
+
+.form-card .form-card-header h2{
+ font-size: 16px;
+ font-weight: 600;
+}
+
+.form-card .form-card-body{
+ padding: 22px;
+}
+
+.form-group{
+ margin-bottom: 18px;
+}
+
+.form-group label{
+ display: block;
+font-size: 13px;
+ font-weight: 500;
+ color: saddlebrown;
+margin-bottom: 6px;
+ text-transform: uppercase;
+ letter-spacing: 0.4px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select:focus,
+.form-group textarea:focus{
+ width: 100%;
+ padding: 9px 12px;
+ border: 1px #e2e0d8;
+ border-radius: 6px;
+ font-family: Arial, Sans-Serif;
+ font-size: 14px;
+ color: black;
+background-color: #f7f6f3;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+ outline: none;
+ border-color:dodgerblue ;
+ background-color: #ffffff;
+ box-shadow: 0 0 0 3px rgba(45, 95, 163, 0.12);
+}
+
+.form-group textarea{
+ resize: vertical;
+ min-height: 90px;
+}
+
+.form-row{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 14px;
+}
+
+.priority-group{
+ display: flex;
+gap: 8px;
+}
+
+.priority-option .priority-option{
+ flex: 1;
+}
+
+.priority-group .priority-option input[type="radio"]{
+ display: none;
+}
+
+.priority-group .priority-option label{
+ display: block;
+ text-align: center;
+ padding: 7px 0;
+ border: 1px solid seashell;
+ border-radius: 6px;
+ font-size: 13px;
+ cursor: pointer;
+ background-color: seashell;
+color: dimgrey;
+ text-transform: none;
+ letter-spacing: 0;
+}
+.priority-group .priority-option input[type="radio"]:checked + .label-low{
+ background-color: seashell;
+ border-color: greenyellow;
+ color: forestgreen;
+}
+
+.priority-group .priority-option input[type="radio"]:checked + .label-med{
+background-color: seashell;
+ border-color: #ffc107;
+ color: #e65100;
+}
+
+.priority-group .priority-option input[type="radio"]:checked + .label-high{
+ background-color: seashell;
+border-color: #e91e63;
+ color: #880e4f;
+}
+
+.submit-btn:hover{
+ background-color: blue;
+}
+
+.success-msg{
+ display: none;
+ background-color: seashell;
+border-radius: 6px;
+ padding: 10px 14px;
+ font-size: 13px;
+ color: darkgreen;
+ margin-top: 14px;
+}
+
+.requests-panel{
+ background-color: #ffffff;
+ border:1px solid seashell;
+ border-radius: 14px;
+ overflow: hidden;
+ display: flex;
+ flex-direction: column;
+}
+
+.filters-bar{
+ display: flex;
+ gap: 10px;
+ flex-wrap:wrap ;
+}
+.filters-bar select{
+flex: 1;
+ min-width: 160px;
+ padding: 7px 12px;
+ border-radius: 6px;
+ background-color: #ffffff;
+ font-family:Arial, Sans-Serif ;
+ background-color: #ffffff;
+ color: black;
+}
+
+.filters-bar .clear-btn:hover{
+ background-color: #ffffff;
+ color: black;
+}
+
+.list-stats{
+ padding: 12px;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ min-height: 160px;
+}
+
+.empty-state{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 48px 24px;
+ color: grey;
+ text-align: center;
+ gap: 8px;
+}
+.empty-state .empty-icon{
+ font-size: 32px;
+ opacity: 0.4;
+}
+
+.empty-state p{
+ font-size: 13px;
+}
+
+.request-card .card-head{
+ display: flex;
+ align-items: flex-start;
+ justify-content: space-between;
+ padding: 14px 16px 10px;
+ gap: 12px;
+}
+.request-card .card-head .name-email{
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+ flex: 1;
+ min-width: 0;
+
+}
