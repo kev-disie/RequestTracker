@@ -1,25 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Request Tracker</title>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<!-- HEADER -->
 <header class="site-header">
     <a class="logo" href="#">
         <div class="logo-icon">RT</div>
         Request Tracker
     </a>
-
-    <span class="header-count"  id="header-count">0 requests</span>
+    <span class="header-count" id="header-count">0 requests</span>
 </header>
 
+<!-- TWO COLUMN LAYOUT -->
 <div class="main-layout">
+
+    <!-- LEFT: Form -->
     <aside>
         <div class="form-card">
             <div class="form-card-header">
@@ -30,19 +31,22 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="John Doe"/>
+                            <label for="name">Full name</label>
+                            <input type="text" id="name" placeholder="Jane Doe" />
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" id="email" placeholder="youremail@example.com">
+                            <input type="email" id="email" placeholder="jane@example.com" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="product">Product / Cpmpany</label>
-                        <select id="Product">
-                            <option value="">Select one...</option>
+                        <label for="product">Product / company</label>
+                        <select id="product">
+                            <option value="">Select one…</option>
                             <option value="Acme Corp">Acme Corp</option>
                             <option value="Globex">Globex</option>
+                            <option value="Initech">Initech</option>
                             <option value="Umbrella Ltd">Umbrella Ltd</option>
                             <option value="Soylent Co">Soylent Co</option>
                         </select>
@@ -50,33 +54,30 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="request-type">Request Type</label>
+                            <label for="request-type">Request type</label>
                             <select id="request-type">
-                                <option value="">Select..</option>
+                                <option value="">Select…</option>
                                 <option value="Bug">Bug</option>
                                 <option value="Feature Request">Feature Request</option>
                                 <option value="General Feedback">General Feedback</option>
                                 <option value="Partnership">Partnership</option>
-                                <option value="other">other</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Priority</label>
                             <div class="priority-group">
                                 <div class="priority-option">
-                                    <input type="radio" name="priority" id="p-low" value="Low" checked>
+                                    <input type="radio" name="priority" id="p-low" value="Low" checked />
                                     <label for="p-low" class="label-low">Low</label>
                                 </div>
-
                                 <div class="priority-option">
-                                    <input type="radio" name="priority" id="p-med" value="Medium">
-                                    <label for="p-med" class="label-med">Medium</label>
+                                    <input type="radio" name="priority" id="p-med" value="Medium" />
+                                    <label for="p-med" class="label-med">Med</label>
                                 </div>
-
                                 <div class="priority-option">
-                                    <input type="radio" name="priority" id="p-high" value="High">
-                                    <label for="p-high" class="label-high" >High</label>
+                                    <input type="radio" name="priority" id="p-high" value="High" />
+                                    <label for="p-high" class="label-high">High</label>
                                 </div>
                             </div>
                         </div>
@@ -84,37 +85,46 @@
 
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea  id="message" placeholder=""Describe you message in detail...></textarea>
+                        <textarea id="message" placeholder="Describe your request in detail…"></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Submit Request</button>
+                    <button type="submit" class="submit-btn">Submit request</button>
                     <div class="success-msg" id="success-msg">✓ Request submitted successfully!</div>
+
                 </form>
             </div>
         </div>
     </aside>
+
     <!-- RIGHT: Request list -->
     <main>
         <div class="requests-panel">
+
             <!-- Filters -->
             <div class="filters-bar">
-                <input type="text" id="search" class="search-input" placeholder="Search name, email , message...">
+                <input type="text" id="search" class="search-input" placeholder="Search name, email, message…" />
                 <select id="filter-product">
-                    <option value="">All Products</option>
+                    <option value="">All products</option>
                     <option value="Acme Corp">Acme Corp</option>
                     <option value="Globex">Globex</option>
                     <option value="Initech">Initech</option>
                     <option value="Umbrella Ltd">Umbrella Ltd</option>
-                    <option value="Soylent">Soylent</option>
+                    <option value="Soylent Co">Soylent Co</option>
                 </select>
-
-                <select  id="filter-type">
+                <select id="filter-type">
+                    <option value="">All types</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Feature Request">Feature Request</option>
+                    <option value="General Feedback">General Feedback</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Other">Other</option>
+                </select>
+                <select id="filter-priority">
                     <option value="">All priorities</option>
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
                 </select>
-
                 <select id="filter-status">
                     <option value="">All statuses</option>
                     <option value="New">New</option>
@@ -123,22 +133,21 @@
                     <option value="Rejected">Rejected</option>
                 </select>
                 <button class="clear-btn" id="clear-filters">Clear</button>
-
             </div>
 
-            <p class="list-stats" id="list-stats"></p>
+            <p class="list-stats" id="list-stats">No requests yet.</p>
 
-            <!--card are injected here dynamiclally-->
-            <div class="requests-list"  id="requests-list">
+            <!-- JS injects cards in here -->
+            <div class="requests-list" id="requests-list">
                 <div class="empty-state">
-                    <div class="empty-icon">📋</div>
-                    <p>No requests yet.Submit one using the form.</p>
+                    <div class="empty-icon"></div>
+                    <p>No requests yet. Submit one using the form.</p>
                 </div>
-        </div>
+            </div>
 
         </div>
-
     </main>
+
 </div>
 
 <script src="app.js"></script>
